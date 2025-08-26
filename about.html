@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About AI - AI Academy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>AI Academy</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link active">About AI</a></li>
+                <li><a href="tutorials.html" class="nav-link">Tutorials</a></li>
+                <li><a href="games.html" class="nav-link">Interactive Games</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About AI Section -->
+    <section class="about page-section">
+        <div class="container">
+            <h2 class="section-title">What is Artificial Intelligence?</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Machine Learning</h3>
+                    <p>Algorithms that learn patterns from data to make predictions and decisions without explicit programming.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Computer Vision</h3>
+                    <p>Teaching computers to interpret and understand visual information from images and videos.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Natural Language Processing</h3>
+                    <p>Enabling computers to understand, interpret, and generate human language in a meaningful way.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Deep Learning</h3>
+                    <p>Neural networks with multiple layers that can learn complex patterns and representations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-brain"></i>
+                        <span>AI Academy</span>
+                    </div>
+                    <p>Making AI education accessible to everyone.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div id="chatbot-container" class="chatbot-container">
+        <div id="chatbot-header" class="chatbot-header">
+            <div class="chatbot-title">
+                <div class="mascot-avatar">
+                    <div class="mascot-face">
+                        <div class="mascot-eyes">
+                            <div class="eye left-eye">
+                                <div class="pupil"></div>
+                            </div>
+                            <div class="eye right-eye">
+                                <div class="pupil"></div>
+                            </div>
+                        </div>
+                        <div class="mascot-mouth"></div>
+                    </div>
+                </div>
+                <span>Aiden - Your AI Buddy</span>
+            </div>
+            <button id="chatbot-toggle" class="chatbot-toggle">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages">
+            <div class="message bot-message">
+                <div class="message-avatar mascot-message-avatar">
+                    <div class="mini-mascot">
+                        <div class="mini-face">
+                            <div class="mini-eyes">
+                                <div class="mini-eye"></div>
+                                <div class="mini-eye"></div>
+                            </div>
+                            <div class="mini-mouth"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="message-content">
+                    Hi there! 👋 I'm Aiden, your friendly AI learning buddy! Ask me anything about artificial intelligence, machine learning, or explore our awesome tutorials and games together! 🤖✨
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbot-input-field" placeholder="Ask me about AI..." maxlength="500">
+            <button id="chatbot-mic" class="chatbot-mic-btn" title="Click to speak">
+                <i class="fas fa-microphone"></i>
+            </button>
+            <button id="chatbot-send" class="chatbot-send-btn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Chatbot Toggle Button -->
+    <button id="chatbot-fab" class="chatbot-fab">
+        <div class="fab-mascot">
+            <div class="fab-face">
+                <div class="fab-eyes">
+                    <div class="fab-eye"></div>
+                    <div class="fab-eye"></div>
+                </div>
+                <div class="fab-mouth"></div>
+            </div>
+        </div>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

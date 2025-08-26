@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire or Fire - AI Bias Simulation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>AI Academy</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About AI</a></li>
+                <li><a href="tutorials.html" class="nav-link">Tutorials</a></li>
+                <li><a href="games.html" class="nav-link">Interactive Games</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hire or Fire Section -->
+    <section class="hire-or-fire page-section">
+        <div class="container">
+            <div class="game-header">
+                <a href="games.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Games
+                </a>
+                <h1 class="game-title">Hire or Fire - AI Bias Simulation</h1>
+                <p class="game-subtitle">Experience how AI bias affects hiring decisions and learn about fairness in machine learning.</p>
+            </div>
+            
+            <div class="game-content">
+                <!-- Game Area -->
+                <div class="simulation-area">
+                    <!-- Instructions -->
+                    <div class="instructions-panel" id="instructions-panel">
+                        <div class="panel-header">
+                            <h2><i class="fas fa-info-circle"></i> How to Play</h2>
+                        </div>
+                        <div class="instructions-content">
+                            <p><strong>You are a hiring manager using an AI recommendation system.</strong></p>
+                            <ul>
+                                <li>Review candidate profiles with their qualifications</li>
+                                <li>Use the AI scoring system to make hiring decisions</li>
+                                <li>The AI will recommend "Hire" or "Pass" for each candidate</li>
+                                <li>After 8 decisions, see how bias affected your choices</li>
+                            </ul>
+                            <p class="warning"><i class="fas fa-exclamation-triangle"></i> <strong>Note:</strong> The AI system contains intentional bias to demonstrate real-world issues.</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="startSimulation()">
+                            <i class="fas fa-play"></i> Start Simulation
+                        </button>
+                    </div>
+
+                    <!-- Candidate Review -->
+                    <div class="candidate-review" id="candidate-review" style="display: none;">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                            <span class="progress-text" id="progress-text">Candidate 1 of 8</span>
+                        </div>
+
+                        <div class="candidate-card" id="candidate-card">
+                            <!-- Candidate info will be populated here -->
+                        </div>
+
+                        <div class="ai-recommendation" id="ai-recommendation">
+                            <h3><i class="fas fa-robot"></i> AI Recommendation</h3>
+                            <div class="recommendation-content">
+                                <div class="recommendation-badge" id="recommendation-badge">
+                                    Analyzing...
+                                </div>
+                                <div class="confidence-display">
+                                    <span class="confidence-label">Confidence:</span>
+                                    <div class="confidence-bar-container">
+                                        <div class="confidence-bar" id="confidence-bar" style="width: 0%"></div>
+                                    </div>
+                                    <span class="confidence-text" id="confidence-text">0%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="decision-buttons">
+                            <button class="btn btn-success" onclick="makeDecision('hire')">
+                                <i class="fas fa-check"></i> Hire
+                            </button>
+                            <button class="btn btn-danger" onclick="makeDecision('pass')">
+                                <i class="fas fa-times"></i> Pass
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Results Analysis -->
+                    <div class="results-analysis" id="results-analysis" style="display: none;">
+                        <div class="panel-header">
+                            <h2><i class="fas fa-chart-bar"></i> Bias Analysis Results</h2>
+                            <p>Here's how bias affected your hiring decisions:</p>
+                        </div>
+                        
+                        <div class="bias-metrics">
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <i class="fas fa-users"></i>
+                                    <h4>Gender Bias</h4>
+                                </div>
+                                <div class="metric-content" id="gender-bias">
+                                    <!-- Gender bias analysis -->
+                                </div>
+                            </div>
+                            
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <i class="fas fa-birthday-cake"></i>
+                                    <h4>Age Bias</h4>
+                                </div>
+                                <div class="metric-content" id="age-bias">
+                                    <!-- Age bias analysis -->
+                                </div>
+                            </div>
+                            
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <h4>Education Bias</h4>
+                                </div>
+                                <div class="metric-content" id="education-bias">
+                                    <!-- Education bias analysis -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="insights-panel">
+                            <h3><i class="fas fa-lightbulb"></i> Key Insights</h3>
+                            <div class="insights-list" id="insights-list">
+                                <!-- Insights will be populated here -->
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="btn btn-primary" onclick="restartSimulation()">
+                                <i class="fas fa-redo"></i> Try Again
+                            </button>
+                            <button class="btn btn-outline" onclick="showDetailedResults()">
+                                <i class="fas fa-chart-line"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Info Panel -->
+                <div class="info-panel">
+                    <div class="info-card">
+                        <h3><i class="fas fa-balance-scale"></i> About AI Bias</h3>
+                        <div class="bias-explanation">
+                            <p><strong>AI Bias</strong> occurs when machine learning systems make unfair decisions based on historical data patterns.</p>
+                            <ul>
+                                <li><strong>Historical Bias:</strong> Past discrimination reflected in training data</li>
+                                <li><strong>Representation Bias:</strong> Underrepresentation of certain groups</li>
+                                <li><strong>Algorithmic Bias:</strong> Biased model design or feature selection</li>
+                                <li><strong>Confirmation Bias:</strong> Reinforcing existing prejudices</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-shield-alt"></i> Fairness Metrics</h3>
+                        <div class="fairness-metrics">
+                            <div class="metric-item">
+                                <strong>Demographic Parity:</strong> Equal hiring rates across groups
+                            </div>
+                            <div class="metric-item">
+                                <strong>Equal Opportunity:</strong> Equal true positive rates for qualified candidates
+                            </div>
+                            <div class="metric-item">
+                                <strong>Calibration:</strong> Prediction accuracy consistent across groups
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-tools"></i> Mitigation Strategies</h3>
+                        <div class="mitigation-strategies">
+                            <ul>
+                                <li>Diverse training data collection</li>
+                                <li>Bias detection and monitoring</li>
+                                <li>Algorithmic auditing processes</li>
+                                <li>Human oversight and review</li>
+                                <li>Transparent decision explanations</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-question-circle"></i> Real-World Impact</h3>
+                        <div class="real-world-examples">
+                            <p>AI bias in hiring can lead to:</p>
+                            <ul>
+                                <li>Discrimination against protected groups</li>
+                                <li>Reduced workplace diversity</li>
+                                <li>Legal and ethical violations</li>
+                                <li>Loss of talented candidates</li>
+                                <li>Reputation and financial damage</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-brain"></i>
+                        <span>AI Academy</span>
+                    </div>
+                    <p>Making AI education accessible to everyone.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div id="chatbot-container" class="chatbot-container">
+        <div id="chatbot-header" class="chatbot-header">
+            <div class="chatbot-title">
+                <div class="mascot-avatar">
+                    <div class="mascot-face">
+                        <div class="mascot-eyes">
+                            <div class="eye left-eye">
+                                <div class="pupil"></div>
+                            </div>
+                            <div class="eye right-eye">
+                                <div class="pupil"></div>
+                            </div>
+                        </div>
+                        <div class="mascot-mouth"></div>
+                    </div>
+                </div>
+                <span>Aiden - Your AI Buddy</span>
+            </div>
+            <button id="chatbot-toggle" class="chatbot-toggle">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages">
+            <div class="message bot-message">
+                <div class="message-avatar mascot-message-avatar">
+                    <div class="mini-mascot">
+                        <div class="mini-face">
+                            <div class="mini-eyes">
+                                <div class="mini-eye"></div>
+                                <div class="mini-eye"></div>
+                            </div>
+                            <div class="mini-mouth"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="message-content">
+                    Hi there! 👋 I'm Aiden, your friendly AI learning buddy! Ask me anything about artificial intelligence, machine learning, or explore our awesome tutorials and games together! 🤖✨
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbot-input-field" placeholder="Ask me about AI..." maxlength="500">
+            <button id="chatbot-mic" class="chatbot-mic-btn" title="Click to speak">
+                <i class="fas fa-microphone"></i>
+            </button>
+            <button id="chatbot-send" class="chatbot-send-btn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Chatbot Toggle Button -->
+    <button id="chatbot-fab" class="chatbot-fab">
+        <div class="fab-mascot">
+            <div class="fab-face">
+                <div class="fab-eyes">
+                    <div class="fab-eye"></div>
+                    <div class="fab-eye"></div>
+                </div>
+                <div class="fab-mouth"></div>
+            </div>
+        </div>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

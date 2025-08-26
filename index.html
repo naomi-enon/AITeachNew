@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Academy - Learn Artificial Intelligence</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>AI Academy</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About AI</a></li>
+                <li><a href="#tutorials" class="nav-link">Tutorials</a></li>
+                <li><a href="#games" class="nav-link">Interactive Games</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Learn Artificial Intelligence</h1>
+                <p class="hero-subtitle">Master the fundamentals of AI with interactive tutorials, hands-on demos, and comprehensive resources</p>
+                <div class="hero-buttons">
+                    <a href="#tutorials" class="btn btn-primary">Start Learning</a>
+                    <a href="#games" class="btn btn-secondary">Play Games</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="ai-animation">
+                    <div class="neural-network">
+                        <div class="node"></div>
+                        <div class="node"></div>
+                        <div class="node"></div>
+                        <div class="node"></div>
+                        <div class="connection"></div>
+                        <div class="connection"></div>
+                        <div class="connection"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About AI Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">What is Artificial Intelligence?</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Machine Learning</h3>
+                    <p>Algorithms that learn patterns from data to make predictions and decisions without explicit programming.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Computer Vision</h3>
+                    <p>Teaching computers to interpret and understand visual information from images and videos.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Natural Language Processing</h3>
+                    <p>Enabling computers to understand, interpret, and generate human language in a meaningful way.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Deep Learning</h3>
+                    <p>Neural networks with multiple layers that can learn complex patterns and representations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tutorials Section -->
+    <section id="tutorials" class="tutorials">
+        <div class="container">
+            <h2 class="section-title">Interactive Tutorials</h2>
+            <div class="tutorial-grid">
+                <div class="tutorial-card">
+                    <div class="tutorial-header">
+                        <h3>AI Fundamentals</h3>
+                        <span class="difficulty beginner">Beginner</span>
+                    </div>
+                    <p>Learn the basic concepts of artificial intelligence, including history, types, and applications.</p>
+                    <div class="tutorial-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span>0% Complete</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="startTutorial('fundamentals')">Start Tutorial</button>
+                </div>
+                <div class="tutorial-card">
+                    <div class="tutorial-header">
+                        <h3>Machine Learning Basics</h3>
+                        <span class="difficulty intermediate">Intermediate</span>
+                    </div>
+                    <p>Understand supervised, unsupervised, and reinforcement learning with practical examples.</p>
+                    <div class="tutorial-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span>0% Complete</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="startTutorial('ml-basics')">Start Tutorial</button>
+                </div>
+                <div class="tutorial-card">
+                    <div class="tutorial-header">
+                        <h3>Neural Networks</h3>
+                        <span class="difficulty advanced">Advanced</span>
+                    </div>
+                    <p>Dive deep into neural network architecture, training, and optimization techniques.</p>
+                    <div class="tutorial-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span>0% Complete</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="startTutorial('neural-networks')">Start Tutorial</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Games Section -->
+    <section id="games" class="games">
+        <div class="container">
+            <h2 class="section-title">Interactive Games</h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Linear Regression Visualizer</h3>
+                    <div class="demo-preview">
+                        <canvas id="regression-canvas" width="300" height="200"></canvas>
+                    </div>
+                    <p>Play with data points and watch AI find the perfect line through them!</p>
+                    <button class="btn btn-primary" onclick="openDemo('regression')">Play Game</button>
+                </div>
+                <div class="demo-card">
+                    <h3>Neural Network Playground</h3>
+                    <div class="demo-preview">
+                        <div class="network-preview">
+                            <div class="layer">
+                                <div class="neuron"></div>
+                                <div class="neuron"></div>
+                            </div>
+                            <div class="layer">
+                                <div class="neuron"></div>
+                                <div class="neuron"></div>
+                                <div class="neuron"></div>
+                            </div>
+                            <div class="layer">
+                                <div class="neuron"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Design and experiment with your own AI brain architecture!</p>
+                    <button class="btn btn-primary" onclick="openDemo('neural-network')">Play Game</button>
+                </div>
+                <div class="demo-card">
+                    <h3>Decision Tree Builder</h3>
+                    <div class="demo-preview">
+                        <div class="tree-preview">
+                            <div class="tree-node root">Root</div>
+                            <div class="tree-branches">
+                                <div class="tree-node">Left</div>
+                                <div class="tree-node">Right</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Build smart decision trees that can classify and predict outcomes!</p>
+                    <button class="btn btn-primary" onclick="openDemo('decision-tree')">Play Game</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Have Questions?</h3>
+                    <p>We're here to help you on your AI learning journey. Reach out with any questions or feedback!</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <span>hello@aiacademy.com</span>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>San Francisco, CA</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-brain"></i>
+                        <span>AI Academy</span>
+                    </div>
+                    <p>Making AI education accessible to everyone.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Tutorial Modal -->
+    <div id="tutorial-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="tutorial-content"></div>
+        </div>
+    </div>
+
+    <!-- Demo Modal -->
+    <div id="demo-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="demo-content"></div>
+        </div>
+    </div>
+
+    <!-- Chatbot -->
+    <div id="chatbot-container" class="chatbot-container">
+        <div id="chatbot-header" class="chatbot-header">
+            <div class="chatbot-title">
+                <div class="mascot-avatar">
+                    <div class="mascot-face">
+                        <div class="mascot-eyes">
+                            <div class="eye left-eye">
+                                <div class="pupil"></div>
+                            </div>
+                            <div class="eye right-eye">
+                                <div class="pupil"></div>
+                            </div>
+                        </div>
+                        <div class="mascot-mouth"></div>
+                    </div>
+                </div>
+                <span>Aiden - Your AI Buddy</span>
+            </div>
+            <button id="chatbot-toggle" class="chatbot-toggle">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages">
+            <div class="message bot-message">
+                <div class="message-avatar mascot-message-avatar">
+                    <div class="mini-mascot">
+                        <div class="mini-face">
+                            <div class="mini-eyes">
+                                <div class="mini-eye"></div>
+                                <div class="mini-eye"></div>
+                            </div>
+                            <div class="mini-mouth"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="message-content">
+                    Hi there! 👋 I'm Aiden, your friendly AI learning buddy! Ask me anything about artificial intelligence, machine learning, or explore our awesome tutorials and games together! 🤖✨
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbot-input-field" placeholder="Ask me about AI..." maxlength="500">
+            <button id="chatbot-mic" class="chatbot-mic-btn" title="Click to speak">
+                <i class="fas fa-microphone"></i>
+            </button>
+            <button id="chatbot-send" class="chatbot-send-btn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Chatbot Toggle Button -->
+    <button id="chatbot-fab" class="chatbot-fab">
+        <div class="fab-mascot">
+            <div class="fab-face">
+                <div class="fab-eyes">
+                    <div class="fab-eye"></div>
+                    <div class="fab-eye"></div>
+                </div>
+                <div class="fab-mouth"></div>
+            </div>
+        </div>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

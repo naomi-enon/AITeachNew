@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI GuessBot - Word Association Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>AI Academy</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About AI</a></li>
+                <li><a href="tutorials.html" class="nav-link">Tutorials</a></li>
+                <li><a href="games.html" class="nav-link">Interactive Games</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- AI GuessBot Section -->
+    <section class="ai-guessbot page-section">
+        <div class="container">
+            <div class="guessbot-header">
+                <a href="games.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Games
+                </a>
+                <h1 class="guessbot-title">AI GuessBot - Word Association Game</h1>
+                <p class="guessbot-subtitle">Enter a clue word and watch AI predict related words using natural language processing!</p>
+            </div>
+            
+            <div class="guessbot-content">
+                <!-- Game Area -->
+                <div class="game-area">
+                    <div class="game-header">
+                        <h2><i class="fas fa-magic"></i> Word Association Challenge</h2>
+                        <p>Type a clue word and see how AI finds connections!</p>
+                    </div>
+                    
+                    <div class="input-section">
+                        <div class="clue-input-container">
+                            <label for="clue-input">Enter your clue word:</label>
+                            <div class="input-group">
+                                <input type="text" id="clue-input" placeholder="e.g., ocean, music, technology..." maxlength="50">
+                                <button id="guess-btn" class="btn btn-primary" onclick="makeGuess()">
+                                    <i class="fas fa-search"></i> Get Guesses
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="results-section" id="results-section" style="display: none;">
+                        <div class="ai-prediction">
+                            <h3><i class="fas fa-robot"></i> AI's Best Guess</h3>
+                            <div class="top-guess" id="top-guess">
+                                <div class="guess-word" id="top-guess-word">---</div>
+                                <div class="confidence-score">
+                                    <span class="label">Confidence:</span>
+                                    <div class="confidence-bar-container">
+                                        <div class="confidence-bar" id="top-confidence-bar" style="width: 0%"></div>
+                                    </div>
+                                    <span class="confidence-percentage" id="top-confidence-text">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="candidate-words">
+                            <h3><i class="fas fa-list"></i> All Candidate Words</h3>
+                            <p class="candidates-subtitle">Ranked by AI relevance to your clue</p>
+                            <div class="words-grid" id="words-grid">
+                                <!-- Candidate words will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-controls">
+                        <button class="btn btn-outline" onclick="newRound()">
+                            <i class="fas fa-sync"></i> New Round
+                        </button>
+                        <button class="btn btn-secondary" onclick="showExample()">
+                            <i class="fas fa-lightbulb"></i> Show Example
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Info Panel -->
+                <div class="guessbot-info-panel">
+                    <div class="info-card">
+                        <h3><i class="fas fa-brain"></i> How It Works</h3>
+                        <div class="nlp-explanation">
+                            <p><strong>Natural Language Processing:</strong> AI analyzes patterns in language to understand word relationships and meanings.</p>
+                            <ul>
+                                <li><strong>Word Embeddings:</strong> Words are mapped to numerical vectors</li>
+                                <li><strong>Semantic Similarity:</strong> AI measures how "close" words are in meaning</li>
+                                <li><strong>Context Analysis:</strong> Relationships are learned from massive text data</li>
+                                <li><strong>Pattern Recognition:</strong> AI finds hidden connections between concepts</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-chart-line"></i> Game Stats</h3>
+                        <div class="game-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Rounds Played:</span>
+                                <span class="stat-value" id="rounds-played">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Current Clue:</span>
+                                <span class="stat-value" id="current-clue">None</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Best Match:</span>
+                                <span class="stat-value" id="best-match">---</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-tips"></i> Pro Tips</h3>
+                        <div class="tips-content">
+                            <div class="tip" id="current-game-tip">
+                                <i class="fas fa-info-circle"></i>
+                                <p>Try different types of words: nouns (cat, house), adjectives (happy, cold), or concepts (freedom, science)!</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-question-circle"></i> Examples</h3>
+                        <div class="examples-list">
+                            <div class="example-item" onclick="tryExample('ocean')">
+                                <strong>ocean</strong> → water, blue, waves, fish
+                            </div>
+                            <div class="example-item" onclick="tryExample('music')">
+                                <strong>music</strong> → sound, melody, song, instrument
+                            </div>
+                            <div class="example-item" onclick="tryExample('technology')">
+                                <strong>technology</strong> → computer, digital, innovation, future
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-brain"></i>
+                        <span>AI Academy</span>
+                    </div>
+                    <p>Making AI education accessible to everyone.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div id="chatbot-container" class="chatbot-container">
+        <div id="chatbot-header" class="chatbot-header">
+            <div class="chatbot-title">
+                <div class="mascot-avatar">
+                    <div class="mascot-face">
+                        <div class="mascot-eyes">
+                            <div class="eye left-eye">
+                                <div class="pupil"></div>
+                            </div>
+                            <div class="eye right-eye">
+                                <div class="pupil"></div>
+                            </div>
+                        </div>
+                        <div class="mascot-mouth"></div>
+                    </div>
+                </div>
+                <span>Aiden - Your AI Buddy</span>
+            </div>
+            <button id="chatbot-toggle" class="chatbot-toggle">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages">
+            <div class="message bot-message">
+                <div class="message-avatar mascot-message-avatar">
+                    <div class="mini-mascot">
+                        <div class="mini-face">
+                            <div class="mini-eyes">
+                                <div class="mini-eye"></div>
+                                <div class="mini-eye"></div>
+                            </div>
+                            <div class="mini-mouth"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="message-content">
+                    Hi there! 👋 I'm Aiden, your friendly AI learning buddy! Ask me anything about artificial intelligence, machine learning, or explore our awesome tutorials and games together! 🤖✨
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbot-input-field" placeholder="Ask me about AI..." maxlength="500">
+            <button id="chatbot-mic" class="chatbot-mic-btn" title="Click to speak">
+                <i class="fas fa-microphone"></i>
+            </button>
+            <button id="chatbot-send" class="chatbot-send-btn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Chatbot Toggle Button -->
+    <button id="chatbot-fab" class="chatbot-fab">
+        <div class="fab-mascot">
+            <div class="fab-face">
+                <div class="fab-eyes">
+                    <div class="fab-eye"></div>
+                    <div class="fab-eye"></div>
+                </div>
+                <div class="fab-mouth"></div>
+            </div>
+        </div>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

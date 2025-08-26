@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Games - AI Academy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>AI Academy</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About AI</a></li>
+                <li><a href="tutorials.html" class="nav-link">Tutorials</a></li>
+                <li><a href="games.html" class="nav-link active">Interactive Games</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Interactive Games Section -->
+    <section class="games page-section">
+        <div class="container">
+            <h2 class="section-title">Interactive Games</h2>
+            <div class="tutorial-grid">
+                <div class="demo-card">
+                    <h3>AI Trainer</h3>
+                    <div class="demo-preview">
+                        <div class="robot-reading">
+                            <div class="robot-head">
+                                <div class="robot-eyes">
+                                    <div class="eye"></div>
+                                    <div class="eye"></div>
+                                </div>
+                                <div class="robot-mouth"></div>
+                            </div>
+                            <div class="robot-body">
+                                <div class="book">📚</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Train an AI to recognize cats and dogs and put your model to the test.</p>
+                    <a href="ai-trainer.html" class="btn btn-primary">Play Game</a>
+                </div>
+                <div class="demo-card">
+                    <h3>AI Guessbot</h3>
+                    <div class="demo-preview">
+                        <div class="search-interface">
+                            <div class="search-bar">
+                                <div class="search-icon">🔍</div>
+                                <div class="search-text">word...</div>
+                            </div>
+                            <div class="ai-thinking">
+                                <div class="brain-icon">🧠</div>
+                                <div class="thinking-dots">
+                                    <span>.</span><span>.</span><span>.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Type a word and see how AI predicts related words.</p>
+                    <a href="ai-guessbot.html" class="btn btn-primary">Play Game</a>
+                </div>
+                <div class="demo-card">
+                    <h3>Hire or Fire</h3>
+                    <div class="demo-preview">
+                        <div class="hiring-interface">
+                            <div class="candidate-profile">
+                                <div class="profile-avatar">👤</div>
+                                <div class="profile-info">
+                                    <div class="name-bar"></div>
+                                    <div class="details-bar"></div>
+                                </div>
+                            </div>
+                            <div class="decision-buttons">
+                                <div class="hire-btn">✓</div>
+                                <div class="fire-btn">✗</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Use AI to hire candidates, then spot bias in decisions.</p>
+                    <a href="hire-or-fire.html" class="btn btn-primary">Play Game</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Modal -->
+    <div id="demo-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="demo-content"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-brain"></i>
+                        <span>AI Academy</span>
+                    </div>
+                    <p>Making AI education accessible to everyone.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div id="chatbot-container" class="chatbot-container">
+        <div id="chatbot-header" class="chatbot-header">
+            <div class="chatbot-title">
+                <div class="mascot-avatar">
+                    <div class="mascot-face">
+                        <div class="mascot-eyes">
+                            <div class="eye left-eye">
+                                <div class="pupil"></div>
+                            </div>
+                            <div class="eye right-eye">
+                                <div class="pupil"></div>
+                            </div>
+                        </div>
+                        <div class="mascot-mouth"></div>
+                    </div>
+                </div>
+                <span>Aiden - Your AI Buddy</span>
+            </div>
+            <button id="chatbot-toggle" class="chatbot-toggle">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages">
+            <div class="message bot-message">
+                <div class="message-avatar mascot-message-avatar">
+                    <div class="mini-mascot">
+                        <div class="mini-face">
+                            <div class="mini-eyes">
+                                <div class="mini-eye"></div>
+                                <div class="mini-eye"></div>
+                            </div>
+                            <div class="mini-mouth"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="message-content">
+                    Hi there! 👋 I'm Aiden, your friendly AI learning buddy! Ask me anything about artificial intelligence, machine learning, or explore our awesome tutorials and games together! 🤖✨
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbot-input-field" placeholder="Ask me about AI..." maxlength="500">
+            <button id="chatbot-mic" class="chatbot-mic-btn" title="Click to speak">
+                <i class="fas fa-microphone"></i>
+            </button>
+            <button id="chatbot-send" class="chatbot-send-btn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Chatbot Toggle Button -->
+    <button id="chatbot-fab" class="chatbot-fab">
+        <div class="fab-mascot">
+            <div class="fab-face">
+                <div class="fab-eyes">
+                    <div class="fab-eye"></div>
+                    <div class="fab-eye"></div>
+                </div>
+                <div class="fab-mouth"></div>
+            </div>
+        </div>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
